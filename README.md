@@ -2,11 +2,10 @@
 
 Table of Contents
 
-<li>
-    <ol><a href="">App Screenshot</a></ol>
-    <ol><a href="">Widgets</a></ol>
-    <ol><a href="">What's Next?</a></ol>
-</li>
+1. <a href="">App Screenshot</a>
+2. <a href="">Widgets</a>
+3. <a href="">What's Next?</a>
+
 
 # App Screenshot
 
@@ -26,22 +25,15 @@ A widget for displaying text. By default, you should provide the text that want 
 A widget for displaying a text box, used to hold user's input. 
 There are some attributes that you should know:
 
-<li>
-    <ul>
-        <b>decoration</b>
-        <br />
-        used to decorate the text field itself, e.g. giving a hint text, adding border, and so on.
-    </ul>
-    <ul>
-        <b>controller</b>
+- <b>decoration</b>
+    <br />
+    used to decorate the text field itself, e.g. giving a hint text, adding border, and so on.
+- <b>controller</b>
         <br />
         controller is an object that hold the value of the text field. So, when you want to get what user has input in your text field, use the controller to retrieve the value.
-    </ul>
-    <ul>
-        <b>obsecureText</b>
+- <b>obsecureText</b>
         <br />
         used to hide the text. usually used in password text field or any text fields that contain the sensitive content.
-    </ul>
 
     TextField(
         controller: controller, // create the controller object first
