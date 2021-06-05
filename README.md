@@ -4,7 +4,7 @@ Table of Contents
 
 1. <a href="">App Screenshot</a>
 2. <a href="">Widgets</a>
-3. <a href="">What's Next?</a>
+3. <a href="">What's to Learn Next?</a>
 
 
 # App Screenshot
@@ -121,4 +121,9 @@ The result of the code snippet above :
 <img src="https://user-images.githubusercontent.com/48744669/120895502-625a6100-c647-11eb-9317-3627b1577fac.png" width="200" />
 
 
-# What's Next?
+# What's to Learn Next?
+1. Statefull Wiget
+2. Navigation (move to different screen / page)
+3. State Management (e.g. BLoC, Provider, dll)
+4. Networking (Calling a web service)
+5. Local Storage (save data to local storage with SQFlite)
