@@ -1,8 +1,19 @@
 # HackGov UGM - Mobile - Demo App
 
-Screenshot
+Table of Contents
+
+<li>
+    <ol><a href="">App Screenshot</a></ol>
+    <ol><a href="">Widgets</a></ol>
+    <ol><a href="">What's Next?</a></ol>
+</li>
+
+# App Screenshot
 
 <img src="https://user-images.githubusercontent.com/48744669/120895243-4904e500-c646-11eb-9314-0ef03e832c82.png" width="300" />
+
+
+# Widgets
 
 ## Text
 
@@ -115,3 +126,6 @@ A widget that can hold one or more widget, and display the widgets vertically.
 The result of the code snippet above :
 
 <img src="https://user-images.githubusercontent.com/48744669/120895502-625a6100-c647-11eb-9317-3627b1577fac.png" width="200" />
+
+
+# What's Next?
