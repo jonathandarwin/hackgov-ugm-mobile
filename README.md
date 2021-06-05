@@ -35,6 +35,7 @@ There are some attributes that you should know:
         <br />
         used to hide the text. usually used in password text field or any text fields that contain the sensitive content.
 
+
     TextField(
         controller: controller, // create the controller object first
         obscureText: true,
@@ -49,22 +50,18 @@ There are some attributes that you should know:
         )
     )
     
+
 ## ElevatedButton / TextButton / OutlinedButton
 
 used to display a button. There are some attributes that you should know:
 
-<li>
-    <ul>
-        <b>onPressed</b>
+- <b>onPressed</b>
         <br />
         A callback function that is called when the user taps the button. Inside the callback, you can do some operations like validating input, redirecting user to another page, and so on.
-    </ul>
-    <ul>
-        <b>child</b>
+- <b>child</b>
         <br />
         attribute to provide a widget that will displayed inside the text. Usually we provide a <b>Text</b> widget to display a text inside the button.
-    </ul>
-</li>
+
 
 ### ElevatedButton
 <img src="https://user-images.githubusercontent.com/48744669/120894876-ce879580-c644-11eb-97f5-4f0019ce9ed6.png" />
