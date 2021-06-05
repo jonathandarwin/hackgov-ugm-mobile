@@ -2,9 +2,9 @@
 
 Table of Contents
 
-1. <a href="">App Screenshot</a>
-2. <a href="">Widgets</a>
-3. <a href="">What's to Learn Next?</a>
+1. [App Screenshot](#app-sreenshot)
+2. [Widgets](#widgets)
+3. [What's to Learn Next?](#what's-next-to-learn?)
 
 
 # App Screenshot
@@ -122,7 +122,7 @@ The result of the code snippet above :
 
 
 # What's to Learn Next?
-1. Statefull Wiget
+1. Statefull Widget
 2. Navigation (move to different screen / page)
 3. State Management (e.g. BLoC, Provider, dll)
 4. Networking (Calling a web service)
