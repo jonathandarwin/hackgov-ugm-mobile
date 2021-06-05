@@ -29,14 +29,13 @@ There are some attributes that you should know:
     <br />
     used to decorate the text field itself, e.g. giving a hint text, adding border, and so on.
 - <b>controller</b>
-        <br />
-        controller is an object that hold the value of the text field. So, when you want to get what user has input in your text field, use the controller to retrieve the value.
+    <br />
+    controller is an object that hold the value of the text field. So, when you want to get what user has input in your text field, use the controller to retrieve the value.
 - <b>obsecureText</b>
-        <br />
-        used to hide the text. usually used in password text field or any text fields that contain the sensitive content.
+    <br />
+    used to hide the text. usually used in password text field or any text fields that contain the sensitive content.
 
-
-    TextField(
+    ```TextField(
         controller: controller, // create the controller object first
         obscureText: true,
         decoration: InputDecoration(
@@ -48,8 +47,7 @@ There are some attributes that you should know:
             borderSide: BorderSide(color: Colors.blue)
           )
         )
-    )
-    
+    )```
 
 ## ElevatedButton / TextButton / OutlinedButton
 
@@ -103,8 +101,13 @@ A multifunction-widget that is used to render literally a container (or you can 
 A widget that can hold one or more widget, and display the widgets vertically.
 
     Column(
-        mainAxisAlignment: MainAxisAlignment.center, // Because the column display the widgets vertically, so the main axis is Y-axis. Centered the main axis means that we make all the widgets become centered in Y-axis
-        children: [ // column hold the array of widgets, that will displaying the widgets in vertical way.
+        // Because the column display the widgets vertically, so the main axis is Y-axis. 
+        // Centered the main axis means that we make all the widgets become centered in Y-axis
+        mainAxisAlignment: MainAxisAlignment.center, 
+        
+        children: [ 
+            // column hold the array of widgets, 
+            // that will displaying the widgets in vertical way.
             FlutterImage(),
             UsernameTextField(),
             PasswordTextField(),
