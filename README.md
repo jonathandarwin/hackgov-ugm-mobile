@@ -4,7 +4,7 @@ Table of Contents
 
 1. [App Screenshot](#app-sreenshot)
 2. [Widgets](#widgets)
-3. [What's to Learn Next?](#whats-to-learn-next?)
+3. [What's to Learn Next?](#whats-to-learn-next)
 
 
 # App Screenshot
