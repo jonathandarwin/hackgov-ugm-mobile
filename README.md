@@ -35,7 +35,8 @@ There are some attributes that you should know:
     <br />
     used to hide the text. usually used in password text field or any text fields that contain the sensitive content.
 
-    ```TextField(
+    ```
+    TextField(
         controller: controller, // create the controller object first
         obscureText: true,
         decoration: InputDecoration(
@@ -47,7 +48,7 @@ There are some attributes that you should know:
             borderSide: BorderSide(color: Colors.blue)
           )
         )
-    )```
+    )
 
 ## ElevatedButton / TextButton / OutlinedButton
 
