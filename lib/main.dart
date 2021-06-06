@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/home.dart';
 
 void main() {
-  runApp(HomePage());
+  runApp(LoginPage());
 }
 
-class HomePage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -90,16 +91,17 @@ class LoginButton extends StatelessWidget {
         String username = UsernameTextField.controller.text;
         String password = PasswordTextField.controller.text;
         
-        String message = '';
+        
         if(username == 'admin' && password == 'admin') {
-          message = 'Welcome!';
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
         }
         else {
-          message = 'Invalid username  / password';
+          
+          final snackbar = SnackBar(content: Text('Invalid username  / password'));
+          ScaffoldMessenger.of(context).showSnackBar(snackbar);
         }
 
-        final snackbar = SnackBar(content: Text(message));
-        ScaffoldMessenger.of(context).showSnackBar(snackbar);
+        
       }, 
       child: Text("Login")
     );
