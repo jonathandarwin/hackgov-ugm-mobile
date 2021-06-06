@@ -15,10 +15,12 @@ Table of Contents
 
 # Stateless vs Stateful Widget
 
-1. Stateless Widget
+1. **Stateless Widget**
+<br />
 Stateless Widget is a kind of widget that never changes through out the execution process. For example, a button cannot be changes from enabled to disabled and vice versa, a text cannot be changes to another text, a rectangle with red color inside it can never be changed to another color, and so on.
 
-2. Statefull Widget
+2. **Statefull Widget**
+<br />
 Stateful Widget is a kind of widget that can changes through out the execution process. For example, a button with grey background can be changes to blue background, a Text widget with "Hello World" text inside it can be changes to "I Love Flutter hehe", and so on. It means that the widget have a state. When the widget state is changes, it will redraw / re-render all the widget below it. How to change a state? just call :
 
     setState({
