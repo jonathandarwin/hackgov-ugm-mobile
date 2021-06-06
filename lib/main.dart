@@ -5,7 +5,24 @@ void main() {
   runApp(LoginPage());
 }
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+  bool isButtonDisabled = true;
+
+  void checkForm() {
+    String username = UsernameTextField.controller.text;
+    String password = PasswordTextField.controller.text;
+
+    setState(() {
+      isButtonDisabled = username == '' || password == '';  
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,6 +62,10 @@ class UsernameTextField extends StatelessWidget {
       margin: EdgeInsets.only(left: 24.0, right: 24.0, top: 32.0, bottom: 16.0),
       child: TextField(
         controller: controller,
+        onChanged: (value) {
+           _LoginPageState state = context.findAncestorStateOfType<_LoginPageState>();
+           state.checkForm();
+        },
         decoration: InputDecoration(
           hintText: "Username",
           enabledBorder: OutlineInputBorder(
@@ -69,6 +90,10 @@ class PasswordTextField extends StatelessWidget {
       margin: EdgeInsets.only(left: 24.0, right: 24.0, bottom: 32.0),
       child: TextField(
         controller: controller,
+        onChanged: (value) {
+           _LoginPageState state = context.findAncestorStateOfType<_LoginPageState>();
+           state.checkForm();
+        },
         obscureText: true,
         decoration: InputDecoration(
           hintText: "Password",
@@ -87,7 +112,10 @@ class PasswordTextField extends StatelessWidget {
 class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: () {
+
+    _LoginPageState state = context.findAncestorStateOfType<_LoginPageState>();
+
+    return ElevatedButton(onPressed: state.isButtonDisabled ? null : () {
         String username = UsernameTextField.controller.text;
         String password = PasswordTextField.controller.text;
         
@@ -100,10 +128,11 @@ class LoginButton extends StatelessWidget {
           final snackbar = SnackBar(content: Text('Invalid username  / password'));
           ScaffoldMessenger.of(context).showSnackBar(snackbar);
         }
-
-        
       }, 
-      child: Text("Login")
+      child: Text("Login"),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(state.isButtonDisabled ? Colors.grey : Colors.blue)
+      ),
     );
   }
 
