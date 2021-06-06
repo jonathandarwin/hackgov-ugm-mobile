@@ -10,6 +10,7 @@ Table of Contents
 # App Screenshot
 
 <img src="https://user-images.githubusercontent.com/48744669/120895243-4904e500-c646-11eb-9314-0ef03e832c82.png" width="300" />
+<img src="https://user-images.githubusercontent.com/48744669/120914988-852e5900-c6cb-11eb-85a6-89e576f36471.png" width="300" />
 
 
 # Widgets
