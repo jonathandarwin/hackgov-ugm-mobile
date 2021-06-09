@@ -3,13 +3,28 @@
 Table of Contents
 
 1. [App Screenshot](#app-sreenshot)
-2. [Widgets](#widgets)
-3. [What's to Learn Next?](#whats-to-learn-next)
+2. [Stateless vs Stateful Widget](#stateless-vs-stateful-widget)
+3. [Widgets](#widgets)
+4. [What's to Learn Next?](#whats-to-learn-next)
 
 
 # App Screenshot
 
 <img src="https://user-images.githubusercontent.com/48744669/120895243-4904e500-c646-11eb-9314-0ef03e832c82.png" width="300" />
+<img src="https://user-images.githubusercontent.com/48744669/121292586-6b338700-c914-11eb-8ef9-6ac63c50e012.png" width="300" />
+
+# Stateless vs Stateful Widget
+
+### Stateless Widget
+Stateless Widget is a kind of widget that never changes through out the execution process. For example, a button cannot be changes from enabled to disabled and vice versa, a text cannot be changes to another text, a rectangle with red color inside it can never be changed to another color, and so on.
+
+### Statefull Widget
+Stateful Widget is a kind of widget that can changes through out the execution process. For example, a button with grey background can be changes to blue background, a Text widget with "Hello World" text inside it can be changes to "I Love Flutter hehe", and so on. It means that the widget have a state. When the widget state is changes, it will redraw / re-render all the widget below it. How to change a state? just call :
+
+    setState({
+        // change the state inside this.
+        // like reassign a variable, etc
+    })
 
 
 # Widgets
