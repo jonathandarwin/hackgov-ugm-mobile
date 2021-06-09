@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,33 +7,9 @@ class HomePage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          body: Column(
-            children: [
-              TitleText(),
-              Expanded(
-                child: TodoList()
-              )
-            ],
-          ),
-        )
-      ),
-    );
-  }
-}
-
-class TitleText extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(24.0),
-      alignment: Alignment.topLeft,
-      child: Text(
-        'Welcome, Jonathan!',
-        style: TextStyle(
-          fontSize: 20.0,
-          fontWeight: FontWeight.bold
+          body: TodoList(),
         ),
-      ),
+      )
     );
   }
 }
@@ -45,7 +19,7 @@ class TodoList extends StatelessWidget {
   final List<String> todoList = [];
 
   void _populateTodoList() {
-    for(int i=1; i<=10; i++) {
+    for(int i=1; i<=20; i++) {
       todoList.add("Todo $i");
     } 
   }
