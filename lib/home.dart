@@ -27,9 +27,45 @@ class HomeBody extends StatelessWidget {
     provider.requestUserData();
 
     return Container(
-      child: UserList()
+      child: StackBody()
     );
   }
+}
+
+class StackBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<HomeProvider>(
+      builder: (context, provider, child) {
+        if(provider.loading) return Loading();
+        if(provider.message != "") return MessageText();
+        return UserList();
+      }
+    );
+  }
+}
+
+class Loading extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: CircularProgressIndicator()
+    );
+  }
+
+}
+
+class MessageText extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    HomeProvider provider = Provider.of<HomeProvider>(context, listen: false);
+
+    return Center(
+      child: Text(provider.message)
+    );
+  }
+
 }
 
 class UserList extends StatelessWidget {
@@ -37,8 +73,8 @@ class UserList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    HomeProvider provider = Provider.of<HomeProvider>(context);
-    
+    HomeProvider provider = Provider.of<HomeProvider>(context, listen: false);
+
     return ListView.builder(
       itemCount: provider.userList.length,
       itemBuilder: (context, idx) {
