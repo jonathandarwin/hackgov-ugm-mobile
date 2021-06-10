@@ -37,6 +37,10 @@ class StackBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(
       builder: (context, provider, child) {
+        /**
+         * Determine which widget that should be displayed by looking
+         * at the state
+         */
         if(provider.loading) return Loading();
         if(provider.message != "") return MessageText();
         return UserList();

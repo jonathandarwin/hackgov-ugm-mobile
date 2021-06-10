@@ -15,6 +15,12 @@ class LoginPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
+          /**
+           * ChangeNotifierProvider is needed to be placed as the parent
+           * of all Consumer. Simply, we use ChangeNotifierProvider 
+           * to simply tell this page that we will use a Provider pattern
+           * with MainProvider that act as the Provider itself.
+           */
           body: ChangeNotifierProvider(
             create: (context) => MainProvider(),
             child: Column(
@@ -36,8 +42,11 @@ class LoginPage extends StatelessWidget {
 class FlutterIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Image.network("https://cdn.iconscout.com/icon/free/png-512/flutter-2038877-1720090.png",
-    width: 60.0, height: 60.0,);
+    return Image.network(
+      "https://cdn.iconscout.com/icon/free/png-512/flutter-2038877-1720090.png",
+      width: 60.0, 
+      height: 60.0,
+    );
   }
 }
 
@@ -48,6 +57,10 @@ class UsernameTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    /**
+     * User Provider.of(listen: false) to gain access to specific 
+     * provider without re-render the widget inside.
+     */
     MainProvider provider = Provider.of<MainProvider>(context, listen: false);
 
     return Container(
@@ -55,6 +68,11 @@ class UsernameTextField extends StatelessWidget {
       child: TextField(
         // controller: controller,
         onChanged: (value) {
+          /**
+           * Every time the new character is inputted,
+           * it will save the new username in MainProvider &
+           * call determineButtonState()
+           */
           provider.username = value;
           provider.determineButtonState();
         },
@@ -79,6 +97,10 @@ class PasswordTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    /**
+     * User Provider.of(listen: false) to gain access to specific 
+     * provider without re-render the widget inside.
+     */
     MainProvider provider = Provider.of<MainProvider>(context, listen: false);
 
     return Container(
@@ -86,6 +108,11 @@ class PasswordTextField extends StatelessWidget {
       child: TextField(
         // controller: controller,
         onChanged: (value) {
+          /**
+           * Every time the new character is inputted,
+           * it will save the new password in MainProvider &
+           * call determineButtonState()
+           */
           provider.password = value;
           provider.determineButtonState();
         },
@@ -107,10 +134,20 @@ class PasswordTextField extends StatelessWidget {
 class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    /**
+     * Consumer will be re-render itself and its descendants when
+     * notifyListeners() is called from MainProvider.
+     * Consumer give access to its provider in builder method arguments.
+     */
     return Consumer<MainProvider>(
         builder: (context, provider, child) {
               return ElevatedButton(onPressed: () {
                 if(!provider.isButtonDisabled) {
+
+                  /**
+                   * You can access the username and password from
+                   * provider, no longer from each controllers.
+                   */
                   String username = provider.username;
                   String password = provider.password;
                     
