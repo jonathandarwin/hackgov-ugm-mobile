@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:test_app/home_provider.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -7,36 +9,44 @@ class HomePage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          body: TodoList(),
+          body: ChangeNotifierProvider(
+            create: (context) => HomeProvider(),
+            child: HomeBody()
+          ),
         ),
       )
     );
   }
 }
 
-class TodoList extends StatelessWidget {
+class HomeBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
 
-  final List<String> todoList = [];
+    HomeProvider provider = Provider.of<HomeProvider>(context, listen: false);
+    provider.requestUserData();
 
-  void _populateTodoList() {
-    for(int i=1; i<=20; i++) {
-      todoList.add("Todo $i");
-    } 
+    return Container(
+      child: UserList()
+    );
   }
+}
+
+class UserList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
 
-    _populateTodoList();
-
+    HomeProvider provider = Provider.of<HomeProvider>(context);
+    
     return ListView.builder(
-      itemCount: todoList.length,
+      itemCount: provider.userList.length,
       itemBuilder: (context, idx) {
         return GestureDetector(
           onTap: () {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(todoList[idx]),
+                content: Text(provider.userList[idx]),
                 duration: Duration(seconds: 1),
               )
             );
@@ -45,7 +55,7 @@ class TodoList extends StatelessWidget {
             margin: EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
             child: Container(
               padding: EdgeInsets.all(24.0),
-              child: Text(todoList[idx])
+              child: Text(provider.userList[idx])
             ),
           ),
         );
