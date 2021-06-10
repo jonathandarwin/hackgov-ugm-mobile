@@ -9,9 +9,13 @@ class HomeProvider extends ChangeNotifier {
   String message = "";
   bool loading = true;
 
-  void requestUserData() {
+  void requestUserData() async {
+    /**
+     * async keyword meant that this function will do some
+     * asynchronous operation.
+     */
     // Call API Async
-    loading = true;
+    
     /**
      * Future is like Promises in JavaScript.
      * It is used to handle async process, where the result is not
@@ -20,36 +24,43 @@ class HomeProvider extends ChangeNotifier {
      * The result will be passed in then((value)) callback.
      */
 
-    Future<Response> response = get(Uri.parse('https://reqres.in/api/users'));
-    response.then((value) {
-        loading = false;
-        userList.clear();
+    try {
+      loading = true;
 
-        if(value.statusCode == 200) {
-          // Success
+      /**
+       * await keyword means that it will wait until it gets the data
+       * and continue the execution process
+       */
+      Response response = await get(Uri.parse('https://reqres.in/api/users'));
+      loading = false;
+      userList.clear();
 
-          /**
-           * because the body is a string, we should convert it to
-           * Map<String, dynamic> that represent the json structure.
-           * 
-           * From the Map, we can access the values by giving a right 
-           * key.
-           */
-          Map<String, dynamic> rawData = jsonDecode(value.body);
-          List<dynamic> listData = rawData["data"] as List;
+      if(response.statusCode == 200) {
+        // Success
 
-          if(listData.isEmpty) message = "No Data.";
+        /**
+         * because the body is a string, we should convert it to
+         * Map<String, dynamic> that represent the json structure.
+         * 
+         * From the Map, we can access the values by giving a right 
+         * key.
+         */
+        Map<String, dynamic> rawData = jsonDecode(response.body);
+        List<dynamic> listData = rawData["data"] as List;
 
-          listData.forEach((element) {
-            userList.add("${element["first_name"]} ${element["last_name"]}");
-          });
-        }
-        else {
-          message = "Error. Please try again.";
-        }
+        if(listData.isEmpty) message = "No Data.";
 
-        notifyListeners();
-    }).catchError((error) {
+        listData.forEach((element) {
+          userList.add("${element["first_name"]} ${element["last_name"]}");
+        });
+      }
+      else {
+        message = "Error. Please try again.";
+      }
+
+      notifyListeners();
+    }
+    catch(e) {
       /**
        * this line of code only executed when there is something wrong
        * or even crash in the Future process.
@@ -58,11 +69,11 @@ class HomeProvider extends ChangeNotifier {
       loading = false;
 
       print('ERROR LOADING DATA FROM API');
-      print(error);
+      print(e);
 
       message = "Error. Please try again.";
       userList.clear();
       notifyListeners();
-    });
+    }
   }
 }
