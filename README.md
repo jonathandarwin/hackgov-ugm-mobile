@@ -149,8 +149,9 @@ Please refer to PPT and explanation comment inside the code.
 Please refer to explanatin comment inside the code.
 
 # What's to Learn Next?
-1. Statefull Widget
+1. Basic of Dart
 2. Navigation (move to different screen / page)
-3. State Management (e.g. BLoC, Provider, dll)
+3. State Management (e.g. BLoC, Provider, Redux, Inherited Widget, GetIt, dll)
 4. Networking (Calling a web service)
 5. Local Storage (save data to local storage with SQFlite)
+6. Animation
