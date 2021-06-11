@@ -10,7 +10,9 @@ Please download the ppt <a href="https://github.com/jonathandarwin/hackgov-ugm-m
 1. [App Screenshot](#app-sreenshot)
 2. [Stateless vs Stateful Widget](#stateless-vs-stateful-widget)
 3. [Widgets](#widgets)
-4. [What's to Learn Next?](#whats-to-learn-next)
+4. [Provider](#provider)
+5. [Networking](#networking)
+6. [What's to Learn Next?](#whats-to-learn-next)
 
 
 # App Screenshot
@@ -140,6 +142,11 @@ The result of the code snippet above :
 
 <img src="https://user-images.githubusercontent.com/48744669/120895502-625a6100-c647-11eb-9317-3627b1577fac.png" width="200" />
 
+# Provider
+Please refer to PPT and explanation comment inside the code.
+
+# Networking
+Please refer to explanatin comment inside the code.
 
 # What's to Learn Next?
 1. Statefull Widget
